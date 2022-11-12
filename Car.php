@@ -1,8 +1,9 @@
 <?php
 
 require_once "Vehicle.php";
+require_once "LightableInterface.php";
 
-class Car extends Vehicle
+class Car extends Vehicle implements LightableInterface
 {
     private string $energy;
     private int $energylevel;
@@ -50,6 +51,14 @@ class Car extends Vehicle
         if (isset($this->hasParkBrake))
             echo $this->hasParkBrake;
         else throw new Exception('Variable non définie');
+    }
+    public function switchOn(): bool
+    {
+        return true;
+    }
+    public function switchOff(): bool
+    {
+        return false;
     }
 }
 
